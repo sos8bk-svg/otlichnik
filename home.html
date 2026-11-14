@@ -8,12 +8,12 @@
 <style>
 :root{color-scheme:dark;--bg:#14131c;--card:#1f1d2b;--ink:#f0eef8;--mut:#a29fb3;--accent:#a99bff;--gold:#f3d77a;--border:#38354d;--soft:#2b2748}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 0%,rgba(113,91,224,.3),transparent 42%),radial-gradient(circle at 100% 35%,rgba(201,162,39,.15),transparent 38%),var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 0%,rgba(113,91,224,.3),transparent 42%),radial-gradient(circle at 100% 35%,rgba(201,162,39,.15),transparent 38%),var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
 main{width:min(980px,100%);margin:auto;padding:36px 20px 56px}
 header{text-align:center;padding:32px 0 30px}
 .brand{display:inline-block;padding:7px 16px;border:1px solid #9a7e27;border-radius:99px;color:var(--gold);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 h1{font-size:clamp(34px,7vw,54px);line-height:1.08;margin:18px 0 12px;background:linear-gradient(90deg,#c5baff,#f3d77a);background-clip:text;-webkit-background-clip:text;color:transparent}
-.lead{max-width:620px;margin:0 auto;color:var(--mut);font-size:17px}
+.lead{max-width:680px;margin:0 auto;color:var(--mut);font-size:17px}
 .section-title{margin:26px 0 14px;font-size:21px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
 .card{display:flex;flex-direction:column;min-height:230px;padding:22px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,rgba(43,39,72,.92),rgba(31,29,43,.96));box-shadow:0 12px 32px rgba(0,0,0,.2)}
@@ -25,6 +25,17 @@ h1{font-size:clamp(34px,7vw,54px);line-height:1.08;margin:18px 0 12px;background
 .link{background:var(--accent);color:#171324;transition:transform .15s,filter .15s}
 .link:hover{transform:translateY(-2px);filter:brightness(1.08)}
 .soon{align-self:flex-start;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--mut);font-size:14px}
+.about{margin-top:32px;padding:clamp(20px,4vw,34px);border:1px solid #6d5aa9;border-radius:22px;background:linear-gradient(135deg,rgba(43,39,72,.96),rgba(31,29,43,.97));box-shadow:0 16px 40px rgba(0,0,0,.22)}
+.about-kicker{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.about h2{margin:8px 0 12px;font-size:clamp(25px,4vw,34px);line-height:1.2}
+.about-intro{max-width:800px;color:var(--mut);font-size:16px}
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-top:20px}
+.about-item{padding:18px;border:1px solid var(--border);border-radius:16px;background:rgba(255,255,255,.035)}
+.about-item .symbol{font-size:25px}
+.about-item h3{margin:8px 0 6px;font-size:18px}
+.about-item p{margin:0;color:var(--mut);font-size:14px}
+.motto{margin:22px 0 0;padding:16px;border-left:3px solid var(--gold);background:rgba(243,215,122,.07);color:#f3e7b6;font-size:17px;font-weight:650}
+.about-link{display:inline-block;margin-top:16px;color:#c5baff;font-weight:700;text-decoration-thickness:1px;text-underline-offset:4px}
 footer{text-align:center;margin-top:30px;color:var(--mut);font-size:13px}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
@@ -35,7 +46,7 @@ footer{text-align:center;margin-top:30px;color:var(--mut);font-size:13px}
 <header>
   <div class="brand">★ СибЮИ МВД России ★</div>
   <h1>Учебные викторины</h1>
-  <p class="lead">Выберите раздел и проверьте свои знания. Новые темы и игры будут появляться здесь.</p>
+  <p class="lead">Выберите раздел и проверьте свои знания. Учимся уверенно, разбираемся в праве и готовимся применять знания на практике.</p>
 </header>
 <section aria-labelledby="sections-title">
   <h2 class="section-title" id="sections-title">Разделы</h2>
@@ -43,7 +54,7 @@ footer{text-align:center;margin-top:30px;color:var(--mut);font-size:13px}
     <article class="card primary">
       <div class="icon" aria-hidden="true">🎓</div>
       <h3>Кто хочет стать отличником?</h3>
-      <p>Викторина по теме «Преступления против собственности»: 15 вопросов, подсказки и таблица рекордов.</p>
+      <p>Викторина по теме «Преступления против собственности»: вопросы, подсказки и результаты игры.</p>
       <a class="link" href="./index.html">Перейти к викторине <span aria-hidden="true">&nbsp;→</span></a>
     </article>
     <article class="card" aria-label="Новый раздел будет добавлен позже">
@@ -60,7 +71,31 @@ footer{text-align:center;margin-top:30px;color:var(--mut);font-size:13px}
     </article>
   </div>
 </section>
-<footer>Новые разделы можно добавлять отдельными карточками без изменения текущей викторины.</footer>
+<section class="about" aria-labelledby="about-title">
+  <div class="about-kicker">О праве и институте</div>
+  <h2 id="about-title">Знание закона — основа справедливости</h2>
+  <p class="about-intro">Сибирский юридический институт МВД России — ведомственный вуз, где получают юридические знания и готовятся к ответственной службе. Этот раздел создан, чтобы просто и увлекательно рассказать об институте и объяснить, почему уголовное право важно для будущих специалистов и каждого человека.</p>
+  <div class="about-grid">
+    <article class="about-item">
+      <div class="symbol" aria-hidden="true">⚖️</div>
+      <h3>Зачем изучать уголовное право?</h3>
+      <p>Оно помогает понимать, какие деяния признаются преступлениями, как закон защищает человека, общество и государство и где проходят границы ответственности. Для будущего юриста это ещё и умение точно применять нормы и уважать права участников процесса.</p>
+    </article>
+    <article class="about-item">
+      <div class="symbol" aria-hidden="true">🧭</div>
+      <h3>Знания для ответственной службы</h3>
+      <p>Правовая подготовка — это не только статьи и определения. Это внимательность к фактам, взвешенные решения, законность действий и понимание последствий для людей. Именно поэтому теорию важно изучать вместе с практическими примерами.</p>
+    </article>
+    <article class="about-item">
+      <div class="symbol" aria-hidden="true">📖</div>
+      <h3>Учиться может быть интересно</h3>
+      <p>Викторины помогают повторять термины, сравнивать понятия и замечать, что уже получается, а что стоит разобрать ещё раз. Ошибка здесь — повод вернуться к материалу и стать увереннее.</p>
+    </article>
+  </div>
+  <blockquote class="motto">«По зову сердца, во благо Отечества»</blockquote>
+  <a class="about-link" href="https://сибюи.мвд.рф/" target="_blank" rel="noopener noreferrer">Узнать больше об институте на официальном сайте →</a>
+</section>
+<footer>Новые разделы и викторины будут появляться здесь. Используйте материалы как учебное дополнение и сверяйте правовые нормы с актуальной редакцией закона.</footer>
 </main>
 </body>
 </html>
