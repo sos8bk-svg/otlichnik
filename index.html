@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Кто хочет стать отличником?</title>
+<style>
+:root{--bg:#f4f1ea;--card:#fff;--ink:#1c1b22;--mut:#6b6877;--ac:#3b2f8f;--acs:#e9e6fa;--ok:#1f8a4c;--oks:#dff3e7;--bad:#c0392b;--bads:#fbe3e0;--bd:#d9d5e6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14131c;--card:#1f1d2b;--ink:#f0eef8;--mut:#a29fb3;--ac:#a99bff;--acs:#2b2748;--ok:#4cd187;--oks:#173626;--bad:#ff7b6b;--bads:#3d1d1a;--bd:#38354d}}
+:root[data-theme="dark"]{--bg:#14131c;--card:#1f1d2b;--ink:#f0eef8;--mut:#a29fb3;--ac:#a99bff;--acs:#2b2748;--ok:#4cd187;--oks:#173626;--bad:#ff7b6b;--bads:#3d1d1a;--bd:#38354d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 Georgia,"Times New Roman",serif;min-height:100vh}
+.w{max-width:680px;margin:0 auto;padding:18px 16px 40px}
+h1{font-size:26px;line-height:1.15;margin:8px 0 6px;text-align:center}
+.sub{color:var(--mut);text-align:center;margin:0 0 22px;font-family:system-ui,sans-serif;font-size:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px}
+.bar{height:8px;background:var(--acs);border-radius:8px;overflow:hidden;margin-bottom:8px}
+.bar i{display:block;height:100%;background:var(--ac);width:0;transition:width .3s}
+.meta{display:flex;justify-content:space-between;color:var(--mut);font:13px system-ui,sans-serif;margin-bottom:14px}
+.q{font-size:19px;font-weight:700;margin:0 0 16px}
+.o{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--card);color:var(--ink);border:2px solid var(--bd);border-radius:12px;padding:12px;margin-bottom:10px;font:15px/1.4 Georgia,serif;cursor:pointer}
+.o:hover:not(:disabled){border-color:var(--ac);background:var(--acs)}
+.o b{flex:none;width:30px;height:30px;border-radius:50%;background:var(--acs);color:var(--ac);display:grid;place-items:center;font:700 14px system-ui,sans-serif}
+.o.ok{border-color:var(--ok);background:var(--oks)}.o.ok b{background:var(--ok);color:#fff}
+.o.bad{border-color:var(--bad);background:var(--bads)}.o.bad b{background:var(--bad);color:#fff}
+.o:disabled{cursor:default}
+.btn{display:block;width:100%;background:var(--ac);color:var(--bg);border:0;border-radius:12px;padding:14px;font:700 16px system-ui,sans-serif;cursor:pointer;margin-top:6px}
+.fb{font:14px system-ui,sans-serif;margin:6px 0 10px;min-height:20px}
+.big{font-size:64px;text-align:center;font-weight:700;color:var(--ac);margin:4px 0}
+.c{text-align:center}.hide{display:none}
+body{background:radial-gradient(circle at 15% 0%,rgba(59,47,143,.28),transparent 50%),radial-gradient(circle at 100% 35%,rgba(201,162,39,.22),transparent 45%),var(--bg);background-attachment:fixed}
+.org{display:block;width:max-content;max-width:100%;margin:0 auto 6px;padding:9px 22px;border-radius:30px;background:linear-gradient(135deg,#1d2a6b,#3b2f8f);color:#f3d77a;font:700 15px system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;border:2px solid #c9a227;box-shadow:0 4px 14px rgba(0,0,0,.25);text-align:center}
+h1{font-size:31px;background:linear-gradient(90deg,var(--ac),#c9a227);-webkit-background-clip:text;background-clip:text;color:transparent}
+.card{box-shadow:0 10px 30px rgba(30,20,80,.16);animation:pop .35s}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.o{transition:transform .15s,border-color .15s}.o:hover:not(:disabled){transform:translateX(4px)}
+.o.ok{animation:pulse .4s}.o.bad{animation:shake .4s}
+@keyframes pulse{50%{transform:scale(1.03)}}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.timer{position:relative;height:24px;background:var(--acs);border-radius:12px;overflow:hidden;margin-bottom:12px;border:1px solid var(--bd)}
+.timer i{position:absolute;left:0;top:0;bottom:0;width:100%;transition:width .1s linear}
+.timer span{position:relative;display:block;text-align:center;font:700 13px/24px system-ui,sans-serif;color:#111}
+.ico{font-size:54px;line-height:1;margin-bottom:6px}
+.rules{font:14px system-ui,sans-serif;color:var(--mut)}
+.ladder{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-bottom:12px}
+.ladder i{font:700 11px system-ui,sans-serif;font-style:normal;width:24px;height:24px;border-radius:6px;display:grid;place-items:center;background:var(--acs);color:var(--mut)}
+.ladder .d{background:var(--ok);color:#fff}.ladder .c{background:#f1c40f;color:#222;transform:scale(1.2)}.ladder .s{outline:2px solid #c9a227}
+.ll{display:flex;gap:8px;margin-bottom:12px}
+.llb{flex:1;padding:9px 4px;border-radius:24px;border:2px solid #c9a227;background:var(--acs);color:var(--ink);font:700 13px system-ui,sans-serif;cursor:pointer}
+.llb:disabled{opacity:.35;text-decoration:line-through;cursor:default}
+.o.sel{border-color:#f39c12;background:rgba(243,156,18,.25);animation:blink .35s infinite alternate}
+@keyframes blink{to{background:rgba(243,156,18,.55)}}
+.o.gone{visibility:hidden}
+.hint{font:14px system-ui,sans-serif;background:var(--acs);border-radius:12px;padding:10px;margin-bottom:10px}
+.ab{display:flex;align-items:center;gap:8px;margin:4px 0}.ab b{width:18px}
+.ab u{display:block;height:12px;background:var(--ac);border-radius:6px}
+.ghost{background:transparent;color:var(--ink);border:2px solid var(--bd)}
+.conf{position:fixed;top:-30px;font-size:26px;animation:fall 3s linear forwards;pointer-events:none;z-index:9}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="org">★ СибЮИ МВД России ★</div>
+<h1>Кто хочет стать отличником?</h1>
+<p class="sub">Тема 30. Преступления против собственности</p>
+
+<div id="start" class="card c">
+<div class="ico">🎓</div>
+<p><b>Правила:</b> 15 вопросов, лестница от 100 до 1 000 000 баллов. На ответ — 15 секунд. Ошибка или конец времени — игра окончена, вы уходите с последней несгораемой суммой (1 000 или 32 000). Баллы можно забрать в любой момент.</p>
+<p class="rules">Подсказки, по одной на игру: 50/50 · Помощь зала · Звонок другу</p>
+<button class="btn" id="go">Начать игру</button>
+</div>
+
+<div id="game" class="card hide">
+<div class="ladder" id="ld"></div>
+<div class="meta"><span id="num"></span><span id="sc"></span></div>
+<div class="timer"><i id="tb"></i><span id="tt">15 с</span></div>
+<div class="ll"><button class="llb" id="l1">50/50</button><button class="llb" id="l2">👥 Зал</button><button class="llb" id="l3">📞 Друг</button></div>
+<p class="q" id="q"></p>
+<div id="opts"></div>
+<div class="hint hide" id="hint"></div>
+<div class="fb" id="fb"></div>
+<button class="btn hide" id="next">Дальше</button>
+<button class="btn ghost" id="take"></button>
+</div>
+
+<div id="end" class="card c hide">
+<div class="ico" id="eico"></div>
+<div class="big" id="gt"></div>
+<div id="grade" style="font-weight:700;font-size:20px"></div>
+<p id="res" style="margin:8px 0 16px"></p>
+<button class="btn" id="again">Сыграть ещё раз</button>
+</div>
+</div>
+
+<script>
+const D=[
+["Хищение","Совершённые с корыстной целью противоправные безвозмездные изъятие и (или) обращение чужого имущества в пользу виновного или других лиц, причинившие ущерб собственнику"],
+["Кража (ст. 158 УК РФ)","Тайное хищение чужого имущества","t"],
+["Тайное хищение имущества","Изъятие имущества в отсутствие потерпевшего и посторонних лиц либо в их присутствии, но незаметно для них","t"],
+["Мошенничество (ст. 159 УК РФ)","Хищение чужого имущества или приобретение права на чужое имущество путём обмана или злоупотребления доверием"],
+["Грабёж (ст. 161 УК РФ)","Открытое хищение чужого имущества","o"],
+["Открытое хищение чужого имущества","Хищение в присутствии собственника или на виду у посторонних, когда виновный сознаёт, что они понимают противоправный характер его действий","o"],
+["Разбой (ст. 162 УК РФ)","Нападение в целях хищения чужого имущества, совершённое с применением насилия, опасного для жизни или здоровья, либо с угрозой его применения"],
+["Присвоение","Умышленное противоправное обращение лицом вверенного ему имущества в свою пользу против воли собственника"],
+["Растрата","Умышленное противоправное издержание лицом вверенного ему имущества путём его потребления, расходования и передачи другим лицам"],
+["Вымогательство (ст. 163 УК РФ)","Требование передачи чужого имущества, права на имущество или иных действий имущественного характера под угрозой насилия, уничтожения имущества или распространения позорящих сведений"],
+["Неправомерное завладение транспортным средством без цели хищения (ст. 166 УК РФ)","Угон: завладение чужим транспортным средством и поездка на нём без намерения присвоить его целиком или по частям"],
+["Мелкое хищение","Кража, мошенничество, присвоение и растрата на сумму не более 2500 руб. (ч. 2 ст. 7.27 КоАП РФ) при отсутствии умысла на более крупный размер и квалифицирующих признаков"],
+["Значительный ущерб гражданину","Ущерб, определяемый с учётом имущественного положения гражданина, но не менее пяти тысяч рублей"],
+["Крупный размер","Стоимость имущества, превышающая 250 тысяч рублей"],
+["Особо крупный размер","Стоимость имущества, превышающая один миллион рублей"],
+["Помещение (в статьях о преступлениях против собственности)","Строения и сооружения независимо от форм собственности, предназначенные для временного нахождения людей или размещения материальных ценностей в производственных или служебных целях"],
+["Хранилище (в статьях о преступлениях против собственности)","Хозяйственные помещения, обособленные от жилых построек, участки территории, трубопроводы и иные сооружения, предназначенные для постоянного или временного хранения материальных ценностей"],
+["Корыстная цель","Стремление изъять и (или) обратить чужое имущество в свою пользу либо распорядиться им как своим собственным"],
+["Безвозмездность изъятия","Изъятие и (или) обращение чужого имущества без своевременного предоставления адекватного эквивалента"],
+["Противоправность изъятия","Изъятие чужого имущества запрещено уголовным законом; у виновного нет прав на имущество, которым он завладел"],
+["Причинение ущерба как признак хищения","Уменьшение имущества у собственника или иного законного владельца (прямой положительный ущерб)"],
+["Предмет хищения","Чужое имущество или право на чужое имущество (только в мошенничестве)"],
+["Материальный (физический) признак предмета хищения","Предмет имеет форму вещи, определённое объёмное выражение и воспринимается наглядно — зрительно или тактильно"],
+["Экономический признак предмета хищения","Имущество обладает материальной ценностью, и к нему приложен человеческий труд, выделяющий его из естественного состояния"],
+["Юридический признак предмета хищения","Имущество находится в чьей-либо собственности или законном владении и является чужим для виновного"],
+["Формы хищения","Кража, мошенничество, присвоение, растрата, грабёж, разбой"],
+["Мошенничество в сфере кредитования (ст. 159.1 УК РФ)","Хищение денежных средств заёмщиком путём представления банку или иному кредитору заведомо ложных и (или) недостоверных сведений"],
+["Мошенничество при получении выплат (ст. 159.2 УК РФ)","Хищение денег или иного имущества при получении пособий, компенсаций, субсидий и иных социальных выплат путём ложных сведений или умолчания о фактах, влекущих их прекращение"],
+["Мошенничество в сфере страхования (ст. 159.5 УК РФ)","Хищение путём обмана относительно наступления страхового случая, а равно размера страхового возмещения"],
+["Мошенничество в сфере компьютерной информации (ст. 159.6 УК РФ)","Хищение путём ввода, удаления, блокирования, модификации компьютерной информации либо иного вмешательства в работу средств её хранения, обработки или передачи"],
+["Мошенничество в сфере предпринимательской деятельности (ч. 5 ст. 159 УК РФ)","Мошенничество, связанное с преднамеренным неисполнением договорных обязательств, если причинён значительный ущерб — не менее 10 тысяч рублей"],
+["Злоупотребление доверием при мошенничестве","Использование с корыстной целью доверительных отношений с владельцем имущества либо принятие обязательств при заведомом отсутствии намерения их выполнить"],
+["Обман как способ мошенничества","Сознательное сообщение заведомо ложных сведений либо умолчание об истинных фактах или умышленные действия, направленные на введение в заблуждение"],
+["Незаконное проникновение в жилище, помещение или иное хранилище","Противоправное тайное или открытое вторжение с целью кражи, грабежа или разбоя, в том числе извлечение предметов без входа в помещение"],
+["Насилие, не опасное для жизни или здоровья","Побои или иные насильственные действия, связанные с причинением физической боли либо ограничением свободы (связывание рук, наручники, запирание в помещении)"],
+["Насилие, опасное для жизни или здоровья","Насилие, повлёкшее тяжкий и средней тяжести вред здоровью, а также лёгкий вред, вызвавший кратковременное расстройство здоровья или незначительную стойкую утрату трудоспособности"],
+["Предметы, используемые в качестве оружия","Любые предметы, которыми могли быть причинены смерть или вред здоровью (нож, топор), а также газовые распылители, аэрозоли и устройства с раздражающими веществами"],
+["Кража из одежды, сумки или другой ручной клади, находившихся при потерпевшем","Кража из вещей, находившихся при живом лице: на нём, в его руках или в непосредственной близости от него"],
+["Кража с банковского счёта","Безналичные расчёты или снятие наличных через банкомат с использованием чужой или поддельной карты и иные способы тайного изъятия денег со счёта"],
+["Продолжаемое хищение","Ряд тождественных действий по изъятию имущества из одного источника, объединённых единым умыслом и составляющих единое преступление"],
+["Отличие грабежа и разбоя от насильственного вымогательства","При грабеже и разбое насилие — средство завладения имуществом, а при вымогательстве оно подкрепляет угрозу, и умысел направлен на получение имущества в будущем"],
+["Сведения, позорящие потерпевшего или его близких","Сведения, порочащие честь и достоинство или подрывающие репутацию, независимо от того, соответствуют ли они действительности"],
+["Иные сведения, распространение которых может причинить существенный вред правам или законным интересам","Любые сведения, составляющие охраняемую законом тайну"],
+["Потерпевший от вымогательства","Собственник или законный владелец, а также иной фактический обладатель имущества (например, лицо, охраняющее его)"],
+["Угроза применения насилия как способ вымогательства","Угроза любого насилия, включая убийство или причинение тяжкого вреда здоровью, воспринимаемая потерпевшим как реальная"],
+["Чужое имущество как предмет вымогательства","Имущество, не принадлежащее виновному на праве собственности: вещи, наличные и безналичные деньги, ценные бумаги, имущественные права"],
+["Право на имущество как предмет вымогательства","Удостоверенная в документах возможность осуществлять правомочия собственника или законного владельца в отношении определённого имущества"],
+["Другие действия имущественного характера как предмет вымогательства","Действия, не связанные с переходом права собственности: выполнение работ, оказание услуг, исполнение за виновного его обязательств"]
+];
+const N=15,L=["А","Б","В","Г"],T=15;
+const P=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
+const $=i=>document.getElementById(i);
+const fmt=n=>n.toLocaleString("ru-RU")+" баллов";
+const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const pk=a=>a[Math.floor(Math.random()*a.length)];
+const PA=["Что означает термин: «%»?","Как определяется понятие «%»?","Выберите верное определение: «%»","Найдите правильное толкование: «%»"];
+const PB=["Какой термин соответствует определению: «%»?","О чём идёт речь: «%»?","Назовите понятие по определению: «%»","Какое понятие здесь описано: «%»?"];
+const OKM=["Верно!","Точно в цель!","Отлично!","Так держать!","Чётко, как по УК!"];
+const NM=["Серёга","Курсант Иванов","Товарищ майор","Одногруппник Лёха","Мама"];
+let qs,i,locked,tm,tl,used,hid,lost,tk,AC;
+function snd(f,d,t){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=t||"sine";o.frequency.value=f;g.gain.value=.07;o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+d)}catch(e){}}
+const tune=a=>a.forEach((f,k)=>setTimeout(()=>snd(f,.2,"triangle"),k*170));
+function build(){
+  return sh(D).slice(0,N).sort((x,y)=>x[1].length-y[1].length).map(c=>{
+    const t=Math.random()<.5?0:1;
+    const pool=sh(D.filter(x=>x!==c&&!(c[2]&&x[2]===c[2]))).slice(0,3);
+    return{t,c,opts:sh([c,...pool]).map(x=>({text:x[t?0:1],ok:x===c}))};
+  });
+}
+const right=()=>qs[i].opts.findIndex(o=>o.ok);
+function upd(){const p=tl/T;$("tb").style.width=p*100+"%";$("tb").style.background=p>.5?"#2ecc71":p>.25?"#f1c40f":"#e74c3c";$("tt").textContent=Math.ceil(tl)+" с"}
+function startT(){clearInterval(tm);tl=T;upd();tm=setInterval(()=>{tl-=.1;if(tl<=0){tl=0;upd();pick(-1);return}upd();if(tl<5&&Math.abs(tl-Math.round(tl))<.05)snd(880,.05)},100)}
+function llu(){$("l1").disabled=locked||used.f;$("l2").disabled=locked||used.a;$("l3").disabled=locked||used.c}
+function say(h){$("hint").innerHTML=h;$("hint").classList.remove("hide")}
+function show(){
+  const q=qs[i];locked=false;hid=[];tk=i?P[i-1]:0;
+  $("ld").innerHTML=P.map((p,k)=>'<i class="'+(k<i?"d":k===i?"c":"")+([4,9].includes(k)?" s":"")+'">'+(k+1)+"</i>").join("");
+  $("num").textContent="Вопрос "+(i+1)+" из "+N;
+  $("sc").textContent="На кону: "+fmt(P[i]);
+  $("q").textContent=(q.t?pk(PB):pk(PA)).replace("%",q.t?q.c[1]:q.c[0]);
+  $("fb").textContent="";$("hint").classList.add("hide");$("next").classList.add("hide");
+  $("take").textContent="Забрать "+fmt(tk);$("take").classList.toggle("hide",!i);
+  const box=$("opts");box.innerHTML="";
+  q.opts.forEach((o,k)=>{const b=document.createElement("button");b.className="o";b.innerHTML="<b>"+L[k]+"</b><span></span>";b.lastChild.textContent=o.text;b.onclick=()=>pick(k);box.appendChild(b)});
+  llu();startT();
+}
+function pick(k){
+  if(locked)return;locked=true;clearInterval(tm);llu();$("take").classList.add("hide");
+  if(k<0){reveal(k);return}
+  $("opts").children[k].classList.add("sel");
+  tune([300,280,260]);
+  setTimeout(()=>reveal(k),1500);
+}
+function reveal(k){
+  const bs=$("opts").children,r=right();
+  for(const b of bs){b.disabled=true;b.classList.remove("sel")}
+  bs[r].classList.add("ok");
+  if(k===r){
+    tune([523,659,784]);$("fb").textContent=pk(OKM)+" +"+fmt(P[i]);$("fb").style.color="var(--ok)";
+    lost=false;
+    if(i===N-1){setTimeout(()=>finish(P[i],"win"),1600);return}
+    tk=P[i];$("take").textContent="Забрать "+fmt(tk);$("take").classList.remove("hide");
+    $("next").textContent="Дальше";$("next").classList.remove("hide");
+  }else{
+    if(bs[k])bs[k].classList.add("bad");
+    tune([200,150]);$("fb").textContent=(k<0?"⏱ Время вышло! ":"Неверно. ")+"Правильный ответ: "+L[r]+".";$("fb").style.color="var(--bad)";
+    lost=true;$("next").textContent="Результат";$("next").classList.remove("hide");
+  }
+}
+function vis(){return[0,1,2,3].filter(k=>!hid.includes(k))}
+$("l1").onclick=()=>{
+  if(locked||used.f)return;used.f=1;
+  const w=sh([0,1,2,3].filter(k=>k!==right())).slice(0,2);hid=hid.concat(w);
+  w.forEach(k=>{const b=$("opts").children[k];b.classList.add("gone");b.disabled=true});
+  snd(660,.15);llu();say("Компьютер убрал два неверных варианта.");
+};
+$("l2").onclick=()=>{
+  if(locked||used.a)return;used.a=1;
+  const r=right(),v=vis();
+  const pe=(Math.random()<i*.03&&v.length>1)?pk(v.filter(k=>k!==r)):r;
+  const top=Math.min(90,40+Math.floor(Math.random()*30)+Math.max(0,20-i*2));
+  const ot=v.filter(k=>k!==pe),rest=100-top,w=ot.map(()=>Math.random()+.1),sw=w.reduce((a,b)=>a+b);
+  const sp={};let acc=0;
+  ot.forEach((k,n)=>{const p=n===ot.length-1?rest-acc:Math.floor(rest*w[n]/sw);sp[k]=p;acc+=p});
+  sp[pe]=top;
+  snd(520,.15);llu();
+  say("<b>👥 Помощь зала</b>"+v.map(k=>'<div class="ab"><b>'+L[k]+'</b><u style="width:'+sp[k]*.7+'%"></u>'+sp[k]+"%</div>").join(""));
+};
+$("l3").onclick=()=>{
+  if(locked||used.c)return;used.c=1;
+  const r=right(),v=vis(),conf=Math.max(35,Math.round(95-i*4.5+Math.random()*8));
+  const g=Math.random()*100<conf+8?r:pk(v.filter(k=>k!==r));
+  snd(440,.2);llu();
+  say("📞 <b>"+pk(NM)+":</b> «Хм… думаю, это вариант "+L[g]+". Уверен процентов на "+conf+".»");
+};
+$("take").onclick=()=>finish(tk,"take");
+$("next").onclick=()=>{if(lost)finish(i>9?P[9]:i>4?P[4]:0,"lost");else{i++;show()}};
+function finish(sum,mode){
+  clearInterval(tm);$("game").classList.add("hide");$("end").classList.remove("hide");
+  const win=sum>=1000000;
+  $("eico").textContent=win?"🏆":sum>=32000?"🥇":sum>=1000?"🥈":"📘";
+  $("gt").textContent=fmt(sum);
+  $("grade").textContent=win?"Абсолютный отличник!":sum>=32000?"Отличник":sum>=1000?"Хорошист":"Надо подучить термины";
+  $("res").textContent=win?"Вы прошли всю лестницу и стали отличником!":mode==="take"?"Вы вовремя забрали выигрыш.":"Игра окончена: вы уходите с несгораемой суммой.";
+  if(win){tune([523,659,784,1047,784,1047]);for(let n=0;n<40;n++){const s=document.createElement("span");s.className="conf";s.textContent=pk(["🎉","⭐","🎓","🏆"]);s.style.left=Math.random()*100+"vw";s.style.animationDelay=Math.random()*1.5+"s";document.body.appendChild(s);setTimeout(()=>s.remove(),5000)}}
+}
+function start(){qs=build();i=0;used={f:0,a:0,c:0};lost=false;$("start").classList.add("hide");$("end").classList.add("hide");$("game").classList.remove("hide");show()}
+$("go").onclick=start;$("again").onclick=start;
+</script>
+</body>
+</html>
