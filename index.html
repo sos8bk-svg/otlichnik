@@ -25,6 +25,7 @@ h1{font-size:26px;line-height:1.15;margin:8px 0 6px;text-align:center}
 .o.bad{border-color:var(--bad);background:var(--bads)}.o.bad b{background:var(--bad);color:#fff}
 .o:disabled{cursor:default}
 .btn{display:block;width:100%;background:var(--ac);color:var(--bg);border:0;border-radius:12px;padding:14px;font:700 16px system-ui,sans-serif;cursor:pointer;margin-top:6px}
+.btn.small{padding:10px 12px;font-size:14px}
 .fb{font:14px system-ui,sans-serif;margin:6px 0 10px;min-height:20px}
 .big{font-size:64px;text-align:center;font-weight:700;color:var(--ac);margin:4px 0}
 .c{text-align:center}.hide{display:none}
@@ -55,6 +56,13 @@ h1{font-size:31px;background:linear-gradient(90deg,var(--ac),#c9a227);-webkit-ba
 .ab{display:flex;align-items:center;gap:8px;margin:4px 0}.ab b{width:18px}
 .ab u{display:block;height:12px;background:var(--ac);border-radius:6px}
 .ghost{background:transparent;color:var(--ink);border:2px solid var(--bd)}
+.records-panel{margin-top:18px;padding:14px;border:1px solid var(--bd);border-radius:14px;background:var(--acs);}
+.records-panel h3{margin:0 0 10px;font:700 16px system-ui,sans-serif;}
+#records{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+#records li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;background:rgba(255,255,255,.35);border-radius:10px;font:600 14px system-ui,sans-serif;}
+#records li strong{font-weight:700;}
+#records li small{color:var(--mut);font-size:12px;}
+.record-status{min-height:20px;margin:12px 0 0;font:700 14px system-ui,sans-serif;color:var(--ok)}
 .conf{position:fixed;top:-30px;font-size:26px;animation:fall 3s linear forwards;pointer-events:none;z-index:9}
 @keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
 </style>
@@ -69,6 +77,11 @@ h1{font-size:31px;background:linear-gradient(90deg,var(--ac),#c9a227);-webkit-ba
 <div class="ico">🎓</div>
 <p><b>Правила:</b> 15 вопросов, лестница от 100 до 1 000 000 баллов. На ответ — 15 секунд. Ошибка или конец времени — игра окончена, вы уходите с последней несгораемой суммой (1 000 или 32 000). Баллы можно забрать в любой момент.</p>
 <p class="rules">Подсказки, по одной на игру: 50/50 · Помощь зала · Звонок другу</p>
+<div class="records-panel">
+  <h3>Таблица рекордов</h3>
+  <ul id="records"></ul>
+  <button class="btn small ghost" id="clear-records" type="button">Сбросить рекорды</button>
+</div>
 <button class="btn" id="go">Начать игру</button>
 </div>
 
@@ -90,6 +103,7 @@ h1{font-size:31px;background:linear-gradient(90deg,var(--ac),#c9a227);-webkit-ba
 <div class="big" id="gt"></div>
 <div id="grade" style="font-weight:700;font-size:20px"></div>
 <p id="res" style="margin:8px 0 16px"></p>
+<div class="record-status" id="recordStatus"></div>
 <button class="btn" id="again">Сыграть ещё раз</button>
 </div>
 </div>
@@ -147,6 +161,7 @@ const D=[
 ];
 const N=15,L=["А","Б","В","Г"],T=15;
 const P=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
+const RECORD_KEY='otlichnik-records-v1';
 const $=i=>document.getElementById(i);
 const fmt=n=>n.toLocaleString("ru-RU")+" баллов";
 const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
@@ -156,6 +171,51 @@ const PB=["Какой термин соответствует определен
 const OKM=["Верно!","Точно в цель!","Отлично!","Так держать!","Чётко, как по УК!"];
 const NM=["Серёга","Курсант Иванов","Товарищ майор","Одногруппник Лёха","Мама"];
 let qs,i,locked,tm,tl,used,hid,lost,tk,AC;
+
+function safeReadRecords(){
+  try {
+    const raw = localStorage.getItem(RECORD_KEY);
+    if (!raw) return [];
+    const data = JSON.parse(raw);
+    return Array.isArray(data) ? data.filter(r => Number.isFinite(r.score) && r.score > 0) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function safeWriteRecords(data){
+  try { localStorage.setItem(RECORD_KEY, JSON.stringify(data)); } catch (e) {}
+}
+
+function renderRecords(){
+  const list = $("records");
+  if (!list) return;
+  const records = safeReadRecords().sort((a,b) => b.score - a.score).slice(0,5);
+  if (!records.length) {
+    list.innerHTML = '<li><span>Пока нет рекордов</span></li>';
+    return;
+  }
+
+  list.innerHTML = records.map((r, idx) => `
+    <li>
+      <span>#${idx + 1}</span>
+      <strong>${Number(r.score).toLocaleString("ru-RU")} ₽</strong>
+      <small>${r.date || 'сегодня'}</small>
+    </li>
+  `).join("");
+}
+
+function saveRecord(score){
+  const entry = {score:Number(score), date:new Date().toLocaleDateString("ru-RU"), id:Date.now()};
+  const records = safeReadRecords();
+  records.push(entry);
+  records.sort((a,b) => b.score - a.score);
+  const top = records.slice(0,5);
+  safeWriteRecords(top);
+  renderRecords();
+  return top[0] && top[0].id === entry.id;
+}
+
 function snd(f,d,t){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=t||"sine";o.frequency.value=f;g.gain.value=.07;o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+d)}catch(e){}}
 const tune=a=>a.forEach((f,k)=>setTimeout(()=>snd(f,.2,"triangle"),k*170));
 function build(){
@@ -222,7 +282,7 @@ $("l2").onclick=()=>{
   ot.forEach((k,n)=>{const p=n===ot.length-1?rest-acc:Math.floor(rest*w[n]/sw);sp[k]=p;acc+=p});
   sp[pe]=top;
   snd(520,.15);llu();
-  say("<b>👥 Помощь зала</b>"+v.map(k=>'<div class="ab"><b>'+L[k]+'</b><u style="width:'+sp[k]*.7+'%"></u>'+sp[k]+"%</div>").join(""));
+  say("<b>👥 Помощь зала</b>"+v.map(k=>' <div class="ab"><b>'+L[k]+'</b><u style="width:'+sp[k]*.7+'%"></u>'+sp[k]+"%</div>").join(""));
 };
 $("l3").onclick=()=>{
   if(locked||used.c)return;used.c=1;
@@ -234,16 +294,21 @@ $("l3").onclick=()=>{
 $("take").onclick=()=>finish(tk,"take");
 $("next").onclick=()=>{if(lost)finish(i>9?P[9]:i>4?P[4]:0,"lost");else{i++;show()}};
 function finish(sum,mode){
-  clearInterval(tm);$("game").classList.add("hide");$("end").classList.remove("hide");
+  clearInterval(tm);
+  const isNewRecord = saveRecord(sum);
+  $("game").classList.add("hide");
+  $("end").classList.remove("hide");
   const win=sum>=1000000;
   $("eico").textContent=win?"🏆":sum>=32000?"🥇":sum>=1000?"🥈":"📘";
   $("gt").textContent=fmt(sum);
   $("grade").textContent=win?"Абсолютный отличник!":sum>=32000?"Отличник":sum>=1000?"Хорошист":"Надо подучить термины";
   $("res").textContent=win?"Вы прошли всю лестницу и стали отличником!":mode==="take"?"Вы вовремя забрали выигрыш.":"Игра окончена: вы уходите с несгораемой суммой.";
+  $("recordStatus").textContent=isNewRecord ? "🔥 Новый рекорд!" : "Результат добавлен в таблицу рекордов.";
   if(win){tune([523,659,784,1047,784,1047]);for(let n=0;n<40;n++){const s=document.createElement("span");s.className="conf";s.textContent=pk(["🎉","⭐","🎓","🏆"]);s.style.left=Math.random()*100+"vw";s.style.animationDelay=Math.random()*1.5+"s";document.body.appendChild(s);setTimeout(()=>s.remove(),5000)}}
 }
 function start(){qs=build();i=0;used={f:0,a:0,c:0};lost=false;$("start").classList.add("hide");$("end").classList.add("hide");$("game").classList.remove("hide");show()}
-$("go").onclick=start;$("again").onclick=start;
+$("go").onclick=start;$("again").onclick=start;$("clear-records").onclick=()=>{safeWriteRecords([]);renderRecords();};
+renderRecords();
 </script>
 </body>
 </html>
