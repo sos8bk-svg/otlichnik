@@ -25,16 +25,16 @@ h1{font-size:clamp(34px,7vw,54px);line-height:1.08;margin:18px 0 12px;background
 .link{background:var(--accent);color:#171324;transition:transform .15s,filter .15s}
 .link:hover{transform:translateY(-2px);filter:brightness(1.08)}
 .soon{align-self:flex-start;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--mut);font-size:14px}
-.about{margin-top:32px;padding:clamp(20px,4vw,34px);border:1px solid #6d5aa9;border-radius:22px;background:linear-gradient(135deg,rgba(43,39,72,.96),rgba(31,29,43,.97));box-shadow:0 16px 40px rgba(0,0,0,.22)}
-.about-kicker{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.about h2{margin:8px 0 12px;font-size:clamp(25px,4vw,34px);line-height:1.2}
-.about-intro{max-width:800px;color:var(--mut);font-size:16px}
-.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-top:20px}
-.about-item{padding:18px;border:1px solid var(--border);border-radius:16px;background:rgba(255,255,255,.035)}
-.about-item .symbol{font-size:25px}
-.about-item h3{margin:8px 0 6px;font-size:18px}
+.about{margin-top:0;margin-bottom:32px;padding:clamp(22px,5vw,42px);border:1px solid #8a75d1;border-radius:24px;background:radial-gradient(ellipse at 90% 0%,rgba(201,162,39,.13),transparent 40%),linear-gradient(135deg,rgba(43,39,72,.98),rgba(31,29,43,.98));box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.about-kicker{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.about h2{max-width:760px;margin:10px 0 14px;font-size:clamp(28px,5vw,42px);line-height:1.12;background:linear-gradient(90deg,#f0eef8,#f3d77a);background-clip:text;-webkit-background-clip:text;color:transparent}
+.about-intro{max-width:850px;margin:0;color:#d0ccdf;font-size:17px}
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px;margin-top:24px}
+.about-item{padding:18px;border:1px solid rgba(201,190,255,.18);border-radius:17px;background:rgba(255,255,255,.045)}
+.about-item .symbol{font-size:27px}
+.about-item h3{margin:9px 0 6px;font-size:18px}
 .about-item p{margin:0;color:var(--mut);font-size:14px}
-.motto{margin:22px 0 0;padding:16px;border-left:3px solid var(--gold);background:rgba(243,215,122,.07);color:#f3e7b6;font-size:17px;font-weight:650}
+.motto{margin:24px 0 0;padding:16px 18px;border-left:3px solid var(--gold);background:rgba(243,215,122,.07);color:#f3e7b6;font-size:18px;font-weight:700}
 .about-link{display:inline-block;margin-top:16px;color:#c5baff;font-weight:700;text-decoration-thickness:1px;text-underline-offset:4px}
 footer{text-align:center;margin-top:30px;color:var(--mut);font-size:13px}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
@@ -43,57 +43,30 @@ footer{text-align:center;margin-top:30px;color:var(--mut);font-size:13px}
 </head>
 <body>
 <main>
+<section class="about" aria-labelledby="about-title">
+  <div class="about-kicker">★ Сибирский юридический институт МВД России</div>
+  <h2 id="about-title">Знание закона — основа справедливости</h2>
+  <p class="about-intro">Сибирский юридический институт МВД России — ведомственный вуз, где получают юридические знания и готовятся к ответственной службе. Этот проект знакомит с институтом и помогает понять, почему уголовное право важно для будущих специалистов и каждого человека.</p>
+  <div class="about-grid">
+    <article class="about-item"><div class="symbol" aria-hidden="true">⚖️</div><h3>Зачем изучать уголовное право?</h3><p>Оно помогает понимать, какие деяния признаются преступлениями, как закон защищает человека, общество и государство и где проходят границы ответственности. Для юриста важно точно применять нормы и уважать права участников процесса.</p></article>
+    <article class="about-item"><div class="symbol" aria-hidden="true">🧭</div><h3>Знания для ответственной службы</h3><p>Правовая подготовка — это внимательность к фактам, взвешенные решения, законность действий и понимание последствий для людей. Теорию важно изучать вместе с практическими примерами.</p></article>
+    <article class="about-item"><div class="symbol" aria-hidden="true">📖</div><h3>Учиться может быть интересно</h3><p>Викторины помогают повторять термины, сравнивать понятия и замечать, что уже получается, а что стоит разобрать ещё раз. Ошибка — повод вернуться к материалу и стать увереннее.</p></article>
+  </div>
+  <blockquote class="motto">«По зову сердца, во благо Отечества»</blockquote>
+  <a class="about-link" href="https://сибюи.мвд.рф/" target="_blank" rel="noopener noreferrer">Официальный сайт института →</a>
+</section>
 <header>
-  <div class="brand">★ СибЮИ МВД России ★</div>
+  <div class="brand">Учебный проект</div>
   <h1>Учебные викторины</h1>
   <p class="lead">Выберите раздел и проверьте свои знания. Учимся уверенно, разбираемся в праве и готовимся применять знания на практике.</p>
 </header>
 <section aria-labelledby="sections-title">
   <h2 class="section-title" id="sections-title">Разделы</h2>
   <div class="grid">
-    <article class="card primary">
-      <div class="icon" aria-hidden="true">🎓</div>
-      <h3>Кто хочет стать отличником?</h3>
-      <p>Викторина по теме «Преступления против собственности»: вопросы, подсказки и результаты игры.</p>
-      <a class="link" href="./index.html">Перейти к викторине <span aria-hidden="true">&nbsp;→</span></a>
-    </article>
-    <article class="card" aria-label="Новый раздел будет добавлен позже">
-      <div class="icon" aria-hidden="true">📚</div>
-      <h3>Новый раздел</h3>
-      <p>Здесь появится следующая тема или подборка викторин.</p>
-      <span class="soon">Скоро</span>
-    </article>
-    <article class="card" aria-label="Новый раздел будет добавлен позже">
-      <div class="icon" aria-hidden="true">🧩</div>
-      <h3>Ещё одна викторина</h3>
-      <p>Место для будущих игровых режимов и новых наборов вопросов.</p>
-      <span class="soon">Скоро</span>
-    </article>
+    <article class="card primary"><div class="icon" aria-hidden="true">🎓</div><h3>Кто хочет стать отличником?</h3><p>Викторина по теме «Преступления против собственности»: вопросы, подсказки и результаты игры.</p><a class="link" href="./index.html">Перейти к викторине <span aria-hidden="true">&nbsp;→</span></a></article>
+    <article class="card" aria-label="Новый раздел будет добавлен позже"><div class="icon" aria-hidden="true">📚</div><h3>Новый раздел</h3><p>Здесь появится следующая тема или подборка викторин.</p><span class="soon">Скоро</span></article>
+    <article class="card" aria-label="Новый раздел будет добавлен позже"><div class="icon" aria-hidden="true">🧩</div><h3>Ещё одна викторина</h3><p>Место для будущих игровых режимов и новых наборов вопросов.</p><span class="soon">Скоро</span></article>
   </div>
-</section>
-<section class="about" aria-labelledby="about-title">
-  <div class="about-kicker">О праве и институте</div>
-  <h2 id="about-title">Знание закона — основа справедливости</h2>
-  <p class="about-intro">Сибирский юридический институт МВД России — ведомственный вуз, где получают юридические знания и готовятся к ответственной службе. Этот раздел создан, чтобы просто и увлекательно рассказать об институте и объяснить, почему уголовное право важно для будущих специалистов и каждого человека.</p>
-  <div class="about-grid">
-    <article class="about-item">
-      <div class="symbol" aria-hidden="true">⚖️</div>
-      <h3>Зачем изучать уголовное право?</h3>
-      <p>Оно помогает понимать, какие деяния признаются преступлениями, как закон защищает человека, общество и государство и где проходят границы ответственности. Для будущего юриста это ещё и умение точно применять нормы и уважать права участников процесса.</p>
-    </article>
-    <article class="about-item">
-      <div class="symbol" aria-hidden="true">🧭</div>
-      <h3>Знания для ответственной службы</h3>
-      <p>Правовая подготовка — это не только статьи и определения. Это внимательность к фактам, взвешенные решения, законность действий и понимание последствий для людей. Именно поэтому теорию важно изучать вместе с практическими примерами.</p>
-    </article>
-    <article class="about-item">
-      <div class="symbol" aria-hidden="true">📖</div>
-      <h3>Учиться может быть интересно</h3>
-      <p>Викторины помогают повторять термины, сравнивать понятия и замечать, что уже получается, а что стоит разобрать ещё раз. Ошибка здесь — повод вернуться к материалу и стать увереннее.</p>
-    </article>
-  </div>
-  <blockquote class="motto">«По зову сердца, во благо Отечества»</blockquote>
-  <a class="about-link" href="https://сибюи.мвд.рф/" target="_blank" rel="noopener noreferrer">Узнать больше об институте на официальном сайте →</a>
 </section>
 <footer>Новые разделы и викторины будут появляться здесь. Используйте материалы как учебное дополнение и сверяйте правовые нормы с актуальной редакцией закона.</footer>
 </main>
