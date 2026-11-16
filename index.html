@@ -3,11 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1119">
 <title>Кто хочет стать отличником?</title>
 <style>
-:root{--bg:#f4f1ea;--card:#fff;--ink:#1c1b22;--mut:#6b6877;--ac:#3b2f8f;--acs:#e9e6fa;--ok:#1f8a4c;--oks:#dff3e7;--bad:#c0392b;--bads:#fbe3e0;--bd:#d9d5e6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14131c;--card:#1f1d2b;--ink:#f0eef8;--mut:#a29fb3;--ac:#a99bff;--acs:#2b2748;--ok:#4cd187;--oks:#173626;--bad:#ff7b6b;--bads:#3d1c23;--bd:#363247}}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,rgba(59,47,143,.28),transparent 50%),radial-gradient(circle at 100% 35%,rgba(201,162,39,.22),transparent 45%),var(--bg);color:var(--ink);font:16px/1.45 Georgia,"Times New Roman",serif;min-height:100vh}.w{max-width:760px;margin:auto;padding:18px 16px 40px}.org{display:block;width:max-content;margin:0 auto 6px;padding:9px 22px;border-radius:30px;background:linear-gradient(135deg,#1d2a67,#3b2f8f);color:#f3d67c;font-weight:800;letter-spacing:.08em;font-size:13px;text-transform:uppercase}.h1{margin:8px auto 10px;text-align:center;font-size:clamp(30px,7vw,50px);line-height:1.08;letter-spacing:-.04em}.sub{margin:0 0 18px;color:var(--mut);text-align:center;font-size:16px}.card{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:18px 18px 22px;box-shadow:0 12px 32px rgba(0,0,0,.18)}.center{text-align:center}.ico{font-size:48px;line-height:1}.rules,.records-note{color:var(--mut);font-size:14px}.field{display:block;text-align:left;font-weight:700;margin:14px 0 8px}.field input{display:block;width:100%;margin-top:7px;padding:12px 14px;border:2px solid var(--bd);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}.btn{display:block;width:100%;padding:13px 16px;border:0;border-radius:12px;background:linear-gradient(180deg,#d9ccff,#b7a5ff);color:#181321;font:700 16px system-ui,sans-serif;cursor:pointer;transition:.2s ease}.btn:hover{filter:brightness(1.03)}.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--bd)}.btn.small{padding:9px 12px;font-size:13px}.btn:disabled{opacity:.52;cursor:default}.records-panel{margin-top:24px;padding-top:16px;border-top:1px solid var(--bd)}.records-panel h2{margin:0 0 8px;font-size:18px}.table-wrap{overflow:auto;max-height:300px;margin-top:12px}.table-wrap table{width:100%;border-collapse:collapse;font-size:13px}.table-wrap th,.table-wrap td{padding:8px 6px;border-bottom:1px solid var(--bd);text-align:left}.meta{display:flex;justify-content:space-between;gap:14px;color:var(--mut);font-size:13px;margin-bottom:10px}.timer{position:relative;height:24px;background:rgba(0,0,0,.08);border-radius:12px;overflow:hidden;margin:12px 0 16px;border:1px solid var(--bd)}.timer i{display:block;height:100%;background:#2ecc71;transition:width .1s linear}.timer span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#111;font-size:12px;font-weight:800}.ladders{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:8px 0 16px}.ladders i{display:grid;place-items:center;width:28px;height:28px;border-radius:7px;background:#ededf7;color:#454156;font-size:12px;font-weight:800;font-style:normal}.ladders .done{background:#1f8a4c;color:#fff}.ladders .current{background:#f2d27b;color:#1a1724;outline:2px solid rgba(0,0,0,.08)}.lifelines{display:flex;gap:8px;margin-bottom:14px}.life{flex:1;border:1px solid var(--bd);border-radius:10px;padding:9px 4px;background:#f8f4ff;color:var(--ink);font:700 14px system-ui,sans-serif;cursor:pointer}.life:disabled{opacity:.48;cursor:default}.q{margin:10px 0 12px;font-size:clamp(18px,3vw,26px);line-height:1.35;font-weight:700}.option{display:flex;align-items:flex-start;gap:10px;width:100%;margin:8px 0;padding:12px 12px;border:1px solid var(--bd);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer}.option b{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#efeafc;color:#2d2457;font-weight:900}.option.correct{border-color:var(--ok);background:var(--oks)}.option.wrong{border-color:var(--bad);background:var(--bads)}.hint,.fb{padding:11px 12px;border-radius:10px;margin-top:10px;font-size:14px}.hint{background:#f3eefc}.fb{min-height:22px;font-weight:700}.big{font-size:clamp(30px,8vw,58px);font-weight:900;letter-spacing:-.04em;color:var(--ac)}.record-status{margin-top:10px;color:var(--mut);font-size:14px}.hide{display:none!important}.sr{display:none}
+:root{color-scheme:dark;--bg:#0d1119;--panel:#151b29;--panel2:#1b2233;--ink:#f7f5ff;--muted:#b7bdd3;--line:rgba(183,156,255,.2);--purple:#b79cff;--gold:#f5d98c;--green:#7ce1b3;--red:#ff8585;--ok-bg:rgba(35,120,83,.23);--bad-bg:rgba(150,53,62,.24)}
+*{box-sizing:border-box}html{min-height:100%;background:var(--bg)}body{margin:0;min-height:100vh;padding:24px 14px 40px;color:var(--ink);font:16px/1.55 Inter,"Segoe UI",system-ui,sans-serif;background:radial-gradient(ellipse at 10% 0%,rgba(139,113,255,.2),transparent 38%),radial-gradient(ellipse at 100% 20%,rgba(245,217,140,.12),transparent 30%),linear-gradient(180deg,#0b1018,#111827)}button,input{font:inherit}.w{width:min(780px,100%);margin:auto}.org{width:max-content;max-width:100%;margin:0 auto 10px;padding:8px 16px;border:1px solid rgba(245,217,140,.35);border-radius:999px;background:rgba(245,217,140,.07);color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.11em}.h1{margin:8px 0 6px;text-align:center;font-size:clamp(29px,6vw,45px);line-height:1.08;letter-spacing:-.05em}.sub{margin:0 0 22px;text-align:center;color:var(--muted);font-size:14px;letter-spacing:.03em}.card{padding:clamp(20px,4vw,32px);border:1px solid var(--line);border-radius:24px;background:linear-gradient(155deg,rgba(24,30,45,.96),rgba(16,21,32,.98));box-shadow:0 24px 70px rgba(0,0,0,.4),inset 0 1px rgba(255,255,255,.035);backdrop-filter:blur(16px)}.center{text-align:center}.hide{display:none!important}.ico{font-size:48px;line-height:1.1}.rules{color:var(--muted);font-size:14px;line-height:1.8}.rules b{color:#e9e2ff}.field{display:block;margin:20px 0 9px;text-align:left;color:#e8e5f6;font-weight:700;font-size:14px}.field input{display:block;width:100%;margin-top:8px;padding:13px 15px;border:1px solid var(--line);border-radius:12px;outline:none;background:#0f1521;color:var(--ink);transition:border-color .2s,box-shadow .2s}.field input:focus{border-color:var(--purple);box-shadow:0 0 0 4px rgba(183,156,255,.13)}.btn{display:block;width:100%;min-height:48px;margin-top:12px;padding:12px 18px;border:1px solid transparent;border-radius:13px;background:linear-gradient(135deg,#c1adff,#927cff);color:#171324;font-weight:800;cursor:pointer;box-shadow:0 10px 24px rgba(143,124,255,.22);transition:transform .18s,filter .18s,box-shadow .18s}.btn:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.05);box-shadow:0 14px 28px rgba(143,124,255,.3)}.btn.ghost{background:rgba(255,255,255,.025);border-color:var(--line);color:var(--ink);box-shadow:none}.btn.small{min-height:40px;padding:9px 12px;font-size:13px}.btn:disabled{opacity:.5;cursor:default}.records-panel{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);text-align:left}.records-panel h2{margin:0;font-size:17px}.records-note{color:var(--muted);font-size:12px}.table-wrap{max-height:280px;overflow:auto;border:1px solid var(--line);border-radius:12px}.table-wrap table{width:100%;border-collapse:collapse;font-size:13px}.table-wrap th,.table-wrap td{padding:9px 10px;border-bottom:1px solid rgba(183,156,255,.13);text-align:left}.table-wrap th{color:#d9d0ff;font-size:11px;text-transform:uppercase;letter-spacing:.08em}.meta{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font-size:12px}.meta span:first-child{color:#e7ddff;font-weight:750}.ladders{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin:0 0 19px}.ladders i{display:grid;place-items:center;width:29px;height:29px;border:1px solid rgba(183,156,255,.14);border-radius:9px;background:rgba(255,255,255,.035);color:#a7abc0;font-style:normal;font-size:12px;font-weight:750}.ladders .done{background:rgba(57,159,112,.24);border-color:rgba(124,225,179,.32);color:#a8f0cd}.ladders .current{background:linear-gradient(145deg,#f8e6ab,#eacb76);border-color:#f8e6ab;color:#211b14;box-shadow:0 0 20px rgba(245,217,140,.24);transform:scale(1.08)}.timer{position:relative;height:27px;margin:15px 0 17px;overflow:hidden;border:1px solid var(--line);border-radius:999px;background:#0c121c}.timer i{display:block;width:100%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#76ddb0,#b8e889);transition:width .1s linear,background .2s}.timer span{position:absolute;inset:0;display:grid;place-items:center;color:#fff;text-shadow:0 1px 5px #000;font-size:12px;font-weight:800}.lifelines{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:21px}.life{min-height:44px;padding:8px 10px;border:1px solid rgba(245,217,140,.27);border-radius:12px;background:linear-gradient(180deg,rgba(245,217,140,.09),rgba(255,255,255,.025));color:#f5e8bd;font-size:13px;font-weight:750;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}.life:hover:not(:disabled){transform:translateY(-1px);border-color:rgba(245,217,140,.65);background:rgba(245,217,140,.13)}.life:disabled{opacity:.43;cursor:default}.q{margin:0 0 16px;padding:18px 19px;border:1px solid rgba(183,156,255,.19);border-radius:16px;background:linear-gradient(135deg,rgba(183,156,255,.1),rgba(255,255,255,.025));font-size:clamp(19px,3vw,25px);font-weight:760;line-height:1.4;letter-spacing:-.025em}#options{display:grid;gap:10px}.option{display:flex;align-items:flex-start;gap:13px;width:100%;min-height:58px;padding:13px 15px;border:1px solid rgba(190,194,220,.19);border-radius:14px;background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.018));color:#f3f2fa;text-align:left;font-size:15px;line-height:1.5;cursor:pointer;transition:transform .16s,border-color .16s,background .16s,box-shadow .16s}.option:hover:not(:disabled){transform:translateY(-1px);border-color:rgba(183,156,255,.75);background:rgba(183,156,255,.1);box-shadow:0 8px 22px rgba(0,0,0,.16)}.option b{flex:0 0 31px;width:31px;height:31px;display:grid;place-items:center;border:1px solid rgba(183,156,255,.38);border-radius:10px;background:rgba(183,156,255,.12);color:#d8cbff;font-size:13px}.option span{padding-top:3px}.option:disabled{cursor:default;opacity:1}.option.correct{border-color:rgba(124,225,179,.72);background:var(--ok-bg);box-shadow:0 0 0 1px rgba(124,225,179,.13)}.option.correct b{border-color:rgba(124,225,179,.5);background:rgba(124,225,179,.18);color:#b6f4d5}.option.wrong{border-color:rgba(255,133,133,.72);background:var(--bad-bg)}.option.wrong b{border-color:rgba(255,133,133,.48);background:rgba(255,133,133,.14);color:#ffc1c1}.hint{white-space:pre-line;margin-top:15px;padding:16px 17px;border:1px solid rgba(245,217,140,.28);border-radius:15px;background:linear-gradient(135deg,rgba(100,77,32,.26),rgba(245,217,140,.07));color:#fff3ce;font-size:15px;font-weight:600;line-height:1.75;box-shadow:inset 0 1px rgba(255,255,255,.035)}.hint::first-line{font-weight:800;color:#ffe8a8}.fb{min-height:24px;margin-top:12px;color:var(--ink);font-size:14px;font-weight:750;line-height:1.55}.big{font-size:clamp(38px,9vw,62px);font-weight:850;letter-spacing:-.06em;color:var(--gold)}.record-status{margin:12px 0;color:var(--muted);font-size:13px}:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(max-width:560px){body{padding:14px 10px 26px}.card{border-radius:19px;padding:18px 15px}.meta{align-items:flex-start}.meta span:last-child{text-align:right}.ladders{gap:4px}.ladders i{width:26px;height:26px}.lifelines{gap:7px}.life{padding:8px 4px;font-size:12px}.q{padding:15px;font-size:19px}.option{gap:10px;padding:12px;font-size:14px;min-height:54px}.hint{padding:14px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -15,135 +17,73 @@
 <div class="org">★ СибЮИ МВД России ★</div>
 <h1 class="h1">Кто хочет стать отличником?</h1>
 <p class="sub">Тема 30. Преступления против собственности</p>
-
 <section id="start" class="card center">
   <div class="ico" aria-hidden="true">🎓</div>
-  <p><b>Правила:</b> 15 вопросов, лестница от 100 до 1 000 000 баллов. На каждый ответ — 60 секунд. Ошибка или конец времени = проигрыш.</p>
-  <p class="rules"><b>Структура раунда:</b><br>
-    • первые 5 вопросов: <b>Минимальный уровень сложности</b><br>
-    • следующие 5: <b>Средний уровень сложности</b><br>
-    • последние 5: <b>Повышенный уровень сложности</b>
-  </p>
+  <p><b>Правила:</b> 15 вопросов, лестница от 100 до 1 000 000 баллов. На каждый ответ — 60 секунд. Ошибка или конец времени завершает игру.</p>
+  <p class="rules"><b>Структура раунда:</b><br>• первые 5 вопросов: <b>Минимальный уровень сложности</b><br>• следующие 5: <b>Средний уровень сложности</b><br>• последние 5: <b>Повышенный уровень сложности</b></p>
   <p class="rules">Подсказки, по одной на игру: 50/50 · Помощь зала · Звонок другу</p>
-  <label class="field" for="playerName">Ваше имя
-    <input id="playerName" name="playerName" maxlength="30" autocomplete="name" placeholder="Введите имя" required>
-  </label>
+  <label class="field" for="playerName">Ваше имя<input id="playerName" name="playerName" maxlength="30" autocomplete="name" placeholder="Введите имя" required></label>
   <button class="btn" id="go">Начать игру</button>
-  <div class="records-panel">
-    <h2>Результаты на этом устройстве</h2>
-    <p class="records-note">История всех завершённых игр хранится локально в браузере и не видна с других устройств.</p>
-    <div class="table-wrap"><table><thead><tr><th>Игрок</th><th>Баллы</th><th>Дата</th></tr></thead><tbody id="records"></tbody></table></div>
-    <button class="btn ghost small" id="clearRecords" type="button">Удалить историю результатов</button>
-  </div>
+  <div class="records-panel"><h2>Результаты на этом устройстве</h2><p class="records-note">История завершённых игр хранится локально в браузере.</p><div class="table-wrap"><table><thead><tr><th>Игрок</th><th>Баллы</th><th>Дата</th></tr></thead><tbody id="records"></tbody></table></div><button class="btn ghost small" id="clearRecords" type="button">Удалить историю результатов</button></div>
 </section>
-
 <section id="game" class="card hide" aria-live="polite">
   <div class="ladders" id="ladder"></div>
   <div class="meta"><span id="questionNumber"></span><span id="playerDisplay"></span></div>
   <div class="timer"><i id="timerBar"></i><span id="timerText">60 с</span></div>
-  <div class="lifelines"><button class="life" id="fifty">50/50</button><button class="life" id="audience">👥 Зал</button><button class="life" id="friend">📞 Друг</button></div>
-  <p class="q" id="question"></p>
-  <div id="options"></div>
-  <div class="hint hide" id="hint"></div>
-  <div class="fb" id="feedback"></div>
-  <button class="btn hide" id="next">Дальше</button>
-  <button class="btn ghost hide" id="take">Забрать баллы</button>
+  <div class="lifelines"><button class="life" id="fifty">50/50</button><button class="life" id="audience">👥 Помощь зала</button><button class="life" id="friend">📞 Звонок другу</button></div>
+  <p class="q" id="question"></p><div id="options"></div><div class="hint hide" id="hint"></div><div class="fb" id="feedback"></div>
+  <button class="btn hide" id="next">Дальше</button><button class="btn ghost hide" id="take">Забрать баллы</button>
 </section>
-
-<section id="end" class="card center hide">
-  <div class="ico" id="endIcon">🏆</div>
-  <div class="big" id="score"></div>
-  <div id="grade" style="font-weight:700;font-size:20px"></div>
-  <p id="resultText"></p>
-  <div class="record-status" id="recordStatus"></div>
-  <button class="btn" id="again">Сыграть ещё раз</button>
-  <button class="btn ghost" id="home">На стартовый экран</button>
-</section>
+<section id="end" class="card center hide"><div class="ico" id="endIcon">🏆</div><div class="big" id="score"></div><div id="grade" style="font-weight:700;font-size:20px"></div><p id="resultText"></p><div class="record-status" id="recordStatus"></div><button class="btn" id="again">Сыграть ещё раз</button><button class="btn ghost" id="home">На стартовый экран</button></section>
 </div>
-
 <script>
 'use strict';
-const TIME_LIMIT=60, QUESTION_COUNT=15, STORAGE_KEY='otlichnik-results-v2';
+const TIME_LIMIT=60,QUESTION_COUNT=15,STORAGE_KEY='otlichnik-results-v2';
 const PRIZES=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
 const LETTERS=['А','Б','В','Г'];
 const QUESTIONS=[
-  {q:'Как определяется кража?',a:['Тайное хищение чужого имущества','Открытое хищение чужого имущества','Нападение на человека с целью завладения имуществом','Хищение чужого имущества с применением силы'],c:0},
-  {q:'Как определяется грабёж?',a:['Тайное хищение чужого имущества','Открытое хищение чужого имущества','Завладение имуществом с помощью обмана','Хищение без применения силы'],c:1},
-  {q:'Что является обязательным признаком разбоя?',a:['Только обман потерпевшего','Тайное изъятие имущества','Нападение с целью хищения и применение насилия или угроза его применения','Противоправное удержание чужого имущества'],c:2},
-  {q:'Какой способ характерен для мошенничества?',a:['Только тайное проникновение','Обман или злоупотребление доверием','Насильственное изъятие имущества','Применение оружия'],c:1},
-  {q:'Что такое присвоение?',a:['Обращение в свою пользу вверенного имущества','Открытое завладение чужим имуществом','Похищение имущества с помощью физической силы','Завладение имуществом в результате обмана'],c:0},
-  {q:'Что такое растрата?',a:['Временное пользование своим имуществом','Противоправное расходование или отчуждение вверенного имущества','Взятие чужого имущества тайно','Получение имущества путем угрозы'],c:1},
-  {q:'Что требует вымогатель при этом преступлении?',a:['Передачи чужого имущества или права на него под угрозой насилия, уничтожения или повреждения имущества','Равноправного обмена имущества','Временного пользования имуществом без возврата','Доверительного управления имуществом'],c:0},
-  {q:'Какова цель угона по статье 166 УК РФ?',a:['Присвоить транспортное средство','Завладеть транспортным средством против воли владельца','Временно использовать его без разрешения','Получить вознаграждение за перевозку'],c:1},
-  {q:'Что означает корыстная цель при хищении?',a:['Желание изъять или обратить чужое имущество в свою пользу','Стремление к мести за обиду','Нежелание платить за услуги','Осуществление права собственности'],c:0},
-  {q:'Какой размер ущерба не может быть ниже значительного ущерба гражданину по примечанию к статье 158 УК РФ?',a:['Более 2 500 рублей','Более 5 000 рублей','Более 25 000 рублей','Более 1 000 рублей'],c:2},
-  {q:'Какой порог крупного размера установлен для преступлений против собственности в примечаниях к статье 158 УК РФ?',a:['Более 1 000 рублей','Более 250 000 рублей','Более 1 000 000 рублей','Более 10 000 рублей'],c:1},
-  {q:'Какой порог особо крупного размера установлен в примечаниях к статье 158 УК РФ?',a:['Более 250 000 рублей','Более 1 000 000 рублей','Более 10 000 рублей','Более 100 000 рублей'],c:1},
-  {q:'Что из перечисленного относится к формам хищения?',a:['Кража, мошенничество, присвоение, растрата, грабёж и разбой','Только кража и грабёж','Только мошенничество и вымогательство','Только разбой и угон'],c:0},
-  {q:'Как обычно разграничивают насильственное вымогательство и разбой по направленности умысла?',a:['Вымогательство направлено на передачу имущества, разбой — на завладение имуществом с применением насилия','Разбой всегда связан с обманом','Вымогательство всегда совершается без угроз','Разбой преследует только корыстную цель'],c:0},
-  {q:'Что является предметом хищения?',a:['Только услуги и работы','Чужое имущество; при мошенничестве также право на имущество, сведения или услуги','Только вещи, имеющие материальную форму','Только денежные средства'],c:1}
+ {q:'Как определяется кража?',a:['Тайное хищение чужого имущества','Открытое хищение чужого имущества','Нападение на человека с целью завладения имуществом','Хищение чужого имущества с применением силы'],c:0},
+ {q:'Как определяется грабёж?',a:['Тайное хищение чужого имущества','Открытое хищение чужого имущества','Завладение имуществом с помощью обмана','Хищение без применения силы'],c:1},
+ {q:'Что является обязательным признаком разбоя?',a:['Только обман потерпевшего','Тайное изъятие имущества','Нападение с целью хищения и применение насилия или угроза его применения','Противоправное удержание чужого имущества'],c:2},
+ {q:'Какой способ характерен для мошенничества?',a:['Только тайное проникновение','Обман или злоупотребление доверием','Насильственное изъятие имущества','Применение оружия'],c:1},
+ {q:'Что такое присвоение?',a:['Обращение в свою пользу вверенного имущества','Открытое завладение чужим имуществом','Похищение имущества с помощью физической силы','Завладение имуществом в результате обмана'],c:0},
+ {q:'Что такое растрата?',a:['Временное пользование своим имуществом','Противоправное расходование или отчуждение вверенного имущества','Взятие чужого имущества тайно','Получение имущества путем угрозы'],c:1},
+ {q:'Что требует вымогатель при этом преступлении?',a:['Передачи чужого имущества или права на него под угрозой насилия, уничтожения или повреждения имущества','Равноправного обмена имущества','Временного пользования имуществом без возврата','Доверительного управления имуществом'],c:0},
+ {q:'Какова цель угона по статье 166 УК РФ?',a:['Присвоить транспортное средство','Завладеть транспортным средством против воли владельца','Временно использовать его без разрешения','Получить вознаграждение за перевозку'],c:1},
+ {q:'Что означает корыстная цель при хищении?',a:['Желание изъять или обратить чужое имущество в свою пользу','Стремление к мести за обиду','Нежелание платить за услуги','Осуществление права собственности'],c:0},
+ {q:'Какой размер ущерба не может быть ниже значительного ущерба гражданину по примечанию к статье 158 УК РФ?',a:['Более 2 500 рублей','Более 5 000 рублей','Более 25 000 рублей','Более 1 000 рублей'],c:2},
+ {q:'Какой порог крупного размера установлен для преступлений против собственности в примечаниях к статье 158 УК РФ?',a:['Более 1 000 рублей','Более 250 000 рублей','Более 1 000 000 рублей','Более 10 000 рублей'],c:1},
+ {q:'Какой порог особо крупного размера установлен в примечаниях к статье 158 УК РФ?',a:['Более 250 000 рублей','Более 1 000 000 рублей','Более 10 000 рублей','Более 100 000 рублей'],c:1},
+ {q:'Что из перечисленного относится к формам хищения?',a:['Кража, мошенничество, присвоение, растрата, грабёж и разбой','Только кража и грабёж','Только мошенничество и вымогательство','Только разбой и угон'],c:0},
+ {q:'Как обычно разграничивают насильственное вымогательство и разбой по направленности умысла?',a:['Вымогательство направлено на передачу имущества, разбой — на завладение имуществом с применением насилия','Разбой всегда связан с обманом','Вымогательство всегда совершается без угроз','Разбой преследует только корыстную цель'],c:0},
+ {q:'Что является предметом хищения?',a:['Только услуги и работы','Чужое имущество; при мошенничестве также право на имущество','Только вещи, имеющие материальную форму','Только денежные средства'],c:1}
 ];
-const $=id=>document.getElementById(id);
-const format=n=>Number(n).toLocaleString('ru-RU')+' баллов';
+const $=id=>document.getElementById(id),format=n=>Number(n).toLocaleString('ru-RU')+' баллов';
 let questions=[],index=0,player='',timer=null,seconds=TIME_LIMIT,locked=false,used={},hidden=[];
+function shuffle(items){const a=items.slice();for(let n=a.length-1;n>0;n--){const j=Math.floor(Math.random()*(n+1));[a[n],a[j]]=[a[j],a[n]]}return a}
+function buildGame(){questions=[...shuffle(QUESTIONS.slice(0,5)),...shuffle(QUESTIONS.slice(5,10)),...shuffle(QUESTIONS.slice(10,15))].map(x=>({...x,a:shuffle(x.a.map((text,n)=>({text,correct:n===x.c})))}))}
 function readResults(){try{const x=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');return Array.isArray(x)?x.filter(r=>r&&typeof r.name==='string'&&Number.isFinite(r.score)&&r.score>=0):[]}catch{return []}}
 function writeResults(rows){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(rows));return true}catch{return false}}
-function renderResults(){const body=$('records');body.replaceChildren();const rows=readResults().slice().reverse();if(!rows.length){const tr=document.createElement('tr');const td=document.createElement('td');td.colSpan=3;td.textContent='Пока нет завершённых игр';tr.appendChild(td);body.appendChild(tr);return}for(const r of rows){const tr=document.createElement('tr');for(const v of [r.name,Number(r.score).toLocaleString('ru-RU'),r.date]){const td=document.createElement('td');td.textContent=v;tr.appendChild(td)}body.appendChild(tr)}}
+function renderResults(){const body=$('records');body.replaceChildren();const rows=readResults().slice().reverse();if(!rows.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=3;td.textContent='Пока нет завершённых игр';tr.appendChild(td);body.appendChild(tr);return}for(const r of rows){const tr=document.createElement('tr');for(const v of [r.name,Number(r.score).toLocaleString('ru-RU'),r.date]){const td=document.createElement('td');td.textContent=v;tr.appendChild(td)}body.appendChild(tr)}}
 function saveResult(score){const rows=readResults();rows.push({name:player,score:Number(score),date:new Date().toLocaleString('ru-RU')});return writeResults(rows)}
-function shuffle(items){const a=items.slice();for(let n=a.length-1;n>0;n--){const j=Math.floor(Math.random()*(n+1));[a[n],a[j]]=[a[j],a[n]]}return a}
-function buildGame(){
-  const easy=shuffle(QUESTIONS.slice(0,5));
-  const basic=shuffle(QUESTIONS.slice(5,10));
-  const advanced=shuffle(QUESTIONS.slice(10,15));
-  questions=[...easy,...basic,...advanced].map(x=>({...x,a:shuffle(x.a.map((text,n)=>({text,correct:n===x.c})))}));
-}
 function correctIndex(){return questions[index].a.findIndex(x=>x.correct)}
-function renderLadder(){
-  $('ladder').replaceChildren(...PRIZES.map((p,n)=>{
-    const el=document.createElement('i');
-    el.textContent=String(n+1);
-    if(n<index) el.classList.add('done');
-    if(n===index) el.classList.add('current');
-    return el;
-  }));
-}
-function updateTimer(){const ratio=seconds/TIME_LIMIT;$('timerBar').style.width=(ratio*100)+'%';$('timerBar').style.background=ratio>.5?'#2ecc71':ratio>.25?'#f1c40f':'#e74c3c';$('timerText').textContent=Math.ceil(seconds)+' с'}
-function startTimer(){clearInterval(timer);seconds=TIME_LIMIT;updateTimer();timer=setInterval(()=>{seconds=Math.max(0,seconds-.1);updateTimer();if(seconds<=0){clearInterval(timer);answer(-1);}},100)}
+function renderLadder(){$('ladder').replaceChildren(...PRIZES.map((p,n)=>{const el=document.createElement('i');el.textContent=String(n+1);if(n<index)el.classList.add('done');if(n===index)el.classList.add('current');return el}))}
+function updateTimer(){const ratio=seconds/TIME_LIMIT;$('timerBar').style.width=(ratio*100)+'%';$('timerBar').style.background=ratio>.5?'linear-gradient(90deg,#76ddb0,#b8e889)':ratio>.25?'linear-gradient(90deg,#f5d98c,#ffe9a3)':'linear-gradient(90deg,#ff8585,#ffb0a1)';$('timerText').textContent=Math.ceil(seconds)+' с'}
+function startTimer(){clearInterval(timer);seconds=TIME_LIMIT;updateTimer();timer=setInterval(()=>{seconds=Math.max(0,seconds-.1);updateTimer();if(seconds<=0){clearInterval(timer);answer(-1)}},100)}
 function updateLifelines(){$('fifty').disabled=locked||used.fifty;$('audience').disabled=locked||used.audience;$('friend').disabled=locked||used.friend}
 function levelLabel(){return index<5?'Минимальный уровень сложности':index<10?'Средний уровень сложности':'Повышенный уровень сложности'}
-function showQuestion(){
-  locked=false;hidden=[];const item=questions[index];renderLadder();
-  $('questionNumber').textContent=`${levelLabel()} · Вопрос ${index+1} из ${QUESTION_COUNT}`;
-  $('playerDisplay').textContent='Игрок: '+player;
-  $('question').textContent=item.q;
-  $('hint').classList.add('hide');$('hint').textContent='';
-  $('feedback').textContent='';$('feedback').style.color='';
-  $('next').classList.add('hide');
-  $('take').classList.add('hide');
-  $('take').textContent='Забрать '+format(index?PRIZES[index-1]:0);
-  const list=$('options');list.replaceChildren();
-  item.a.forEach((choice,n)=>{
-    const btn=document.createElement('button');
-    btn.type='button';btn.className='option';
-    const letter=document.createElement('b');letter.textContent=LETTERS[n];
-    const text=document.createElement('span');text.textContent=choice.text;
-    btn.appendChild(letter);btn.appendChild(text);
-    btn.addEventListener('click',()=>answer(n));
-    list.appendChild(btn);
-  });
-  updateLifelines();startTimer();
-}
+function showQuestion(){locked=false;hidden=[];const item=questions[index];renderLadder();$('questionNumber').textContent=`${levelLabel()} · Вопрос ${index+1} из ${QUESTION_COUNT}`;$('playerDisplay').textContent='Игрок: '+player;$('question').textContent=item.q;$('hint').classList.add('hide');$('hint').textContent='';$('feedback').textContent='';$('feedback').style.color='';$('next').classList.add('hide');$('take').classList.add('hide');$('take').textContent='Забрать '+format(index?PRIZES[index-1]:0);const list=$('options');list.replaceChildren();item.a.forEach((choice,n)=>{const btn=document.createElement('button');btn.type='button';btn.className='option';const letter=document.createElement('b');letter.textContent=LETTERS[n];const text=document.createElement('span');text.textContent=choice.text;btn.append(letter,text);btn.addEventListener('click',()=>answer(n));list.appendChild(btn)});updateLifelines();startTimer()}
 function showHint(text){$('hint').textContent=text;$('hint').classList.remove('hide')}
-function answer(n){if(locked)return;locked=true;clearInterval(timer);updateLifelines();$('take').classList.add('hide');const right=correctIndex();const buttons=$('options').children;for(const b of buttons)b.disabled=true;buttons[right].classList.add('correct');if(n===right){$('feedback').textContent='Верно! Выигрыш: '+format(PRIZES[index]);$('feedback').style.color='var(--ok)';if(index===QUESTION_COUNT-1){setTimeout(()=>finish(PRIZES[index],'win'),700);return}$('take').classList.remove('hide');$('next').textContent='Дальше';$('next').classList.remove('hide')}else{if(n>=0&&buttons[n])buttons[n].classList.add('wrong');$('feedback').textContent=(n<0?'Время вышло. ':'Неверно. ')+'Правильный ответ: '+LETTERS[right];$('feedback').style.color='var(--bad)';$('next').textContent='Завершить игру';$('next').classList.remove('hide')}}
-function visibleOptions(){return [0,1,2,3].filter(n=>!hidden.includes(n))}
-$('fifty').addEventListener('click',()=>{if(locked||used.fifty)return;used.fifty=true;const wrong=shuffle([0,1,2,3].filter(n=>n!==correctIndex())).slice(0,2);hidden.push(...wrong);wrong.forEach(n=>{$('options').children[n].style.display='none'});updateLifelines();showHint('50/50: убраны два неверных варианта.')});
-$('audience').addEventListener('click',()=>{if(locked||used.audience)return;used.audience=true;const right=correctIndex(),visible=visibleOptions();const weights=visible.map(n=>n===right?65:Math.floor(30/(visible.length-1)));updateLifelines();showHint('👥 Зал: '+visible.map((n,i)=>`${LETTERS[n]} — ${weights[i]}%`).join(' · '))});
-$('friend').addEventListener('click',()=>{if(locked||used.friend)return;used.friend=true;updateLifelines();showHint('📞 Друг считает, что правильный ответ: '+LETTERS[correctIndex()]+'.')});
+function answer(n){if(locked)return;locked=true;clearInterval(timer);updateLifelines();$('take').classList.add('hide');const right=correctIndex(),buttons=$('options').children;for(const b of buttons)b.disabled=true;buttons[right].classList.add('correct');if(n===right){$('feedback').textContent='Верно! Выигрыш: '+format(PRIZES[index]);$('feedback').style.color='var(--green)';if(index===QUESTION_COUNT-1){setTimeout(()=>finish(PRIZES[index],'win'),700);return}$('take').classList.remove('hide');$('next').textContent='Дальше';$('next').classList.remove('hide')}else{if(n>=0&&buttons[n])buttons[n].classList.add('wrong');$('feedback').textContent=(n<0?'Время вышло. ':'Неверно. ')+'Правильный ответ: '+LETTERS[right];$('feedback').style.color='var(--red)';$('next').textContent='Завершить игру';$('next').classList.remove('hide')}}
+function visibleOptions(){return[0,1,2,3].filter(n=>!hidden.includes(n))}
+$('fifty').addEventListener('click',()=>{if(locked||used.fifty)return;used.fifty=true;const wrong=shuffle([0,1,2,3].filter(n=>n!==correctIndex())).slice(0,2);hidden.push(...wrong);wrong.forEach(n=>{$('options').children[n].hidden=true});updateLifelines();showHint('50/50\nДва неверных варианта ответа убраны.')});
+$('audience').addEventListener('click',()=>{if(locked||used.audience)return;used.audience=true;const right=correctIndex(),visible=visibleOptions(),correctShare=65,otherShare=Math.floor((100-correctShare)/(visible.length-1));updateLifelines();showHint('Помощь зала\n'+visible.map(n=>`${LETTERS[n]} — ${n===right?correctShare:otherShare}%`).join('\n'))});
+$('friend').addEventListener('click',()=>{if(locked||used.friend)return;used.friend=true;updateLifelines();showHint('Звонок другу\nДруг считает, что правильный ответ: '+LETTERS[correctIndex()]+'.')});
 $('take').addEventListener('click',()=>finish(index?PRIZES[index-1]:0,'take'));
-$('next').addEventListener('click',()=>{if($('feedback').style.color==='var(--bad)'){const safe=index>=10?PRIZES[9]:index>=5?PRIZES[4]:0;finish(safe,'lost')}else{index++;showQuestion()}});
-function finish(score,mode){clearInterval(timer);const stored=saveResult(score);$('game').classList.add('hide');$('end').classList.remove('hide');$('score').textContent=format(score);const won=score>=1000000;$('grade').textContent=won?'Отличный результат!':score>=32000?'Поздравляем!':'Игра завершена';$('resultText').textContent=mode==='win'?'Вы прошли все 15 вопросов!':mode==='take'?'Вы забрали баллы и завершили игру.':`Игра окончена. Несгораемая сумма: ${format(score)}.`;$('recordStatus').textContent=stored?'Результат сохранён на этом устройстве.':'Не удалось сохранить результат в браузере.';renderResults();}
-function start(){const value=$('playerName').value.trim().replace(/\s+/g,' ');if(!value){$('playerName').setCustomValidity('Введите имя перед началом игры.');$('playerName').reportValidity();return}$('playerName').setCustomValidity('');player=value.slice(0,30);index=0;used={fifty:false,audience:false,friend:false};$('start').classList.add('hide');$('end').classList.add('hide');$('game').classList.remove('hide');buildGame();showQuestion();}
-$('go').addEventListener('click',start);$('again').addEventListener('click',start);$('home').addEventListener('click',()=>{$('end').classList.add('hide');$('start').classList.remove('hide');renderResults()});$('playerName').addEventListener('input',()=>$('playerName').setCustomValidity(''));$('clearRecords').addEventListener('click',()=>{if(confirm('Удалить все результаты на этом устройстве?')){localStorage.removeItem(STORAGE_KEY);renderResults()}});renderResults();
+$('next').addEventListener('click',()=>{if($('feedback').style.color==='var(--red)'){const safe=index>=10?PRIZES[9]:index>=5?PRIZES[4]:0;finish(safe,'lost')}else{index++;showQuestion()}});
+function finish(score,mode){clearInterval(timer);const stored=saveResult(score);$('game').classList.add('hide');$('end').classList.remove('hide');$('score').textContent=format(score);$('grade').textContent=score>=1000000?'Отличный результат!':score>=32000?'Поздравляем!':'Игра завершена';$('resultText').textContent=mode==='win'?'Вы прошли все 15 вопросов!':mode==='take'?'Вы забрали баллы и завершили игру.':`Игра окончена. Несгораемая сумма: ${format(score)}.`;$('recordStatus').textContent=stored?'Результат сохранён на этом устройстве.':'Не удалось сохранить результат в браузере.';renderResults()}
+function start(){const value=$('playerName').value.trim().replace(/\s+/g,' ');if(!value){$('playerName').reportValidity();return}player=value.slice(0,30);index=0;used={fifty:false,audience:false,friend:false};$('start').classList.add('hide');$('end').classList.add('hide');$('game').classList.remove('hide');buildGame();showQuestion()}
+$('go').addEventListener('click',start);$('again').addEventListener('click',start);$('home').addEventListener('click',()=>{$('end').classList.add('hide');$('start').classList.remove('hide');renderResults()});$('clearRecords').addEventListener('click',()=>{if(confirm('Удалить все результаты на этом устройстве?')){localStorage.removeItem(STORAGE_KEY);renderResults()}});renderResults();
 </script>
 </body>
 </html>
